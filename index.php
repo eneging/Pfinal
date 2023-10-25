@@ -58,11 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
            break;
     }
 
-    switch ($url) {
-        case '/src/views/admin/permisos.php':
-           $AdminController->permisos($_POST);
-           break;
-    }
+   
 
 }
 
