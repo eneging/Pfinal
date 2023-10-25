@@ -40,6 +40,8 @@
             <div class="flex flex-col justify-center  content-center items-center ">
                 <h1 class="p-[2rem] text-[13px] ">MENU ADMINISTRACION</h1>
                 <div class=" w-[80%] flex flex-col gap-[2rem]">
+
+                
                     <a href="/permisos" class="flex gap-4 items-center text-[13px] " > <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
                             <style>
                                 svg {

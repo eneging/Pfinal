@@ -3,15 +3,14 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/src/Controllers/UsuarioController.php")
 class AdminController extends UsuarioController  {
 
 
-public function permisos() {
+public function AdministrarPermiso($id) {
 
     $usuario = new Usuario();
-    $data = $usuario->AllUsuarios();
+    $dataUsuario = $usuario->UsuarioByid($id);
 
-    
+    extract($dataUsuario);
 
     include $_SERVER['DOCUMENT_ROOT']. "/src/views/admin/permisos.php";
-
 
 }
 

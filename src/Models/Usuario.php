@@ -23,6 +23,20 @@ class Usuario {
   
     }
 
+    public function UsuarioByid($id)
+{  
+
+       $respuesta = $this->connection->query("SELECT * FROM usuarios WHERE rol_id = $id");
+       $data_usuario = $respuesta->fetch(PDO::FETCH_ASSOC);
+       
+       return $data_usuario;
+  
+    }
+
+
+
+
+
 
     public function login($data){
 

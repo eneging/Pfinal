@@ -19,14 +19,33 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
            $controller->index();
            break;
 
-
+//habilidades del admin ////
            switch ($url) {
             case '/permisos':
-               $Controller->index();
-               break;
+                $AdminController->AdministrarPermiso($_GET['id']);
+               break;}
+
+               switch ($url) {
+                case '/maestros':
+                    $AdminController->AdministrarMaestros();
+                   break;}
+
+                   switch ($url) {
+                    case '/alumnos':
+                        $AdminController->AdministrarAlumnos();
+                       break;}
+
+                       switch ($url) {
+                        case '/clases':
+                            $AdminController->AdministrarClases();
+                           break;}
+
+
+                        
+
         }
     }
-}
+
 
 
 
@@ -38,6 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
            $controller->ingresar($_POST);
            break;
     }
+
+    switch ($url) {
+        case '/src/views/admin/permisos.php':
+           $AdminController->permisos($_POST);
+           break;
+    }
+
 }
 
 

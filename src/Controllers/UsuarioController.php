@@ -9,20 +9,11 @@ public function index(){
     $usuario = new Usuario();
     $data = $usuario->AllUsuarios();
      
-    include $_SERVER['DOCUMENT_ROOT']. "/src/views/login.php";
-
-}
-
-public function permisos(){
-
-    $usuario = new Usuario();
-    $data = $usuario->AllUsuarios();
     extract($data);
-    include $_SERVER['DOCUMENT_ROOT']. "/src/views/admin/permisos.php";
+    include $_SERVER['DOCUMENT_ROOT']. "/src/views/login.php";
+    
 
 }
-
-
 
 public function ingresar($data)
     
@@ -41,6 +32,7 @@ public function ingresar($data)
    switch ($rol_id) {
     case 1:
         include $_SERVER["DOCUMENT_ROOT"] . "/src/views/admin/dashboard.php";
+    
         break;
     
         case 2:
