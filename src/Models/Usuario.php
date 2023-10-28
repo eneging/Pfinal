@@ -13,10 +13,20 @@ class Usuario {
        $this->connection = $db->conectar();
     }
 
+    public function aletoriaImagenes() 
+ {
+    $res = $this->connection->query("SELECT * FROM img
+    ORDER BY RAND()
+    LIMIT 1");
+    $data = $res->fetch(PDO::FETCH_ASSOC);
+    
+    return $data;
+}
+
 
     public function AllUsuarios()
     {
-       $respuesta = $this->connection->query("SELECT * FROM usuarios");
+       $respuesta = $this->connection->query("SELECT * FROM `usuarios`, roles , clases WHERE usuarios.rol_id = roles.id AND usuarios.clase_id = clases.id");
        $data_empleados = $respuesta->fetchAll(PDO::FETCH_ASSOC);
        
        return $data_empleados;
@@ -40,8 +50,11 @@ class Usuario {
 
     public function login($data){
 
+     
+
+
       $usuario = $data["correo"];
-    
+      
 
       $respuesta = $this->connection->query("SELECT * FROM usuarios where  CorreoElectronico = '$usuario'");
       $data_usuario = $respuesta->fetch(PDO::FETCH_ASSOC);
@@ -51,5 +64,26 @@ class Usuario {
     
     
    
+  public function updateperfil($data){
 
+   extract($data);
+
+   $res = $this->connection->query("UPDATE `usuarios` 
+   SET `Nombre`='$nombre', `Apellido`='$apellido', `CorreoElectronico`='$email', `clase_id`= 3, `direccion`='$direccion', `fec_nac`='$fecha' 
+   WHERE `CorreoElectronico`='$email';
+   ");
+  
+   
+   if ($res){
+       return true;
+   }else{
+       return false;
+   }
+
+}
+
+
+  
+
+  
 }

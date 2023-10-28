@@ -1,3 +1,8 @@
+<?php 
+
+extract($img);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +57,7 @@
 
 <div class="bg-white w-[90vw]">
 
-<img class="h-screen brightness-75" src="/src/img/retrato-joven-estudiante-observando-mientras-dos-hombres-usan-computadora-portatil-segundo-plano-cesped_650366-3900.avif"/>
+<img class="h-screen brightness-75" src="<?= $nombre ?>"/>
 
 
 </div>

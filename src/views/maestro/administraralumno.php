@@ -1,8 +1,8 @@
 <?php 
 
 session_start();
-
 extract($_SESSION['user']);
+
 ?>
 
 
@@ -42,37 +42,54 @@ extract($_SESSION['user']);
     </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <div class="h-screen  flex  justify-start ">
-      <div class="modal2">
 
-      <div class="flex justify-center content-center items-center flex-col gap-[1rem] p-[2rem]"> 
+    <div class="modal2">
 
-      <form method="post" action="/editarpermiso" class="flex justify-center content-center items-center flex-col gap-[1rem] bg-white">
-       <h1 class="text-[3rem]">Editar Permiso</h1>
-       <input type="text" />
-         <label>Email del Usuario</label>
-          <input class="border-2 border-solid"  name="email" require/>
+<div class="flex justify-center content-center items-center flex-col gap-[1rem] p-[2rem]"> 
 
-          <label>Rol del Usuario</label>
-        <select class="border-2 border-solid" name="rol" require > 
-            <option value="1">Administrador</option>
-            <option value="3">Maestro</option>
-            <option value="2">Alumno</option>
-        </select>
+<form method="post" action="/createalumno" class="flex justify-center content-center items-center flex-col gap-[1rem] bg-white">
+<h1 class="text-[1rem]">Editar Permiso</h1>
+ <input type="text" />
 
-           <label>estado activo</label>
-          <input type="checkbox" name="estado"  />
+ <label>DNI</label>
+    <input class="border-2 border-solid" type="text"  name="dni" require/>
+
+
+   <label>Correo Electronico</label>
+    <input class="border-2 border-solid" type="email"  name="email" require/>
+
+    <label>Cotrasena</label>
+    <input class="border-2 border-solid" type="text"  name="contrasena" require/>
+
+    <label>Nombre(s)</label>
+    <input class="border-2 border-solid" type="text"  name="nombre" require/>
+ 
+    <label>Apellido(s)</label>
+    <input class="border-2 border-solid"  type="text"  name="apellido" require/>
+
+    <label>Direccion</label>
+    <input class="border-2 border-solid" type="text"  name="direccion" require/>
+
+    <label>Fecha de Nacimiento</label>
+    <input class="border-2 border-solid" type="date" name="fecha" require/>
+
+
+    
+  
 
 <div>
-   
 
-<button class="bg-blue-500 text-white p-[1rem]">Guardar Cambios</button></div>
 
-      
-      </form>
-       
-      <button type="submit" class="bg-gray-700 text-white  p-[1rem] " onclick="toggleModal2()" >Close</button>
-      </div>
-      </div>
+<button type="submit" class="bg-blue-500 text-white p-[1rem]">Guardar Cambios</button></div>
+
+
+</form>
+ 
+<button type="submit" class="bg-gray-700 text-white  p-[1rem] " onclick="toggleModal2()" >Close</button>
+</div>
+</div>
+
+
 
 
         <sidebar class="w-[17vw] bg-gray-800 shadow-2x text-white divide-y divide">
@@ -80,36 +97,17 @@ extract($_SESSION['user']);
                 <h1> universidad</h1>
             </div>
             <div class="flex flex-col p-[1rem] gap-[1rem] ">
-            <h2 class="text-[13px]">Administrador</h2>
+            <h2 class="text-[13px]">Maestro</h2>
                 <h1 class="  font-bold text-[15px]"><?= $Nombre ?></h1>
                
             </div>
             <div class="flex flex-col justify-center  content-center items-center ">
-                <h1 class="p-[2rem] text-[13px] ">MENU ADMINISTRACION</h1>
+                <h1 class="p-[2rem] text-[13px] ">MENU MAESTRO</h1>
                 <div class=" w-[80%] flex flex-col gap-[2rem]">
 
 
-                <a href="/permisos" class="flex gap-4 items-center text-[13px] " > <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                            <style>
-                                svg {
-                                    fill: #ffffff
-                                }
-                            </style>
-                            <path d="M224 0a128 128 0 1 1 0 256A128 128 0 1 1 224 0zM178.3 304h91.4c11.8 0 23.4 1.2 34.5 3.3c-2.1 18.5 7.4 35.6 21.8 44.8c-16.6 10.6-26.7 31.6-20 53.3c4 12.9 9.4 25.5 16.4 37.6s15.2 23.1 24.4 33c15.7 16.9 39.6 18.4 57.2 8.7v.9c0 9.2 2.7 18.5 7.9 26.3H29.7C13.3 512 0 498.7 0 482.3C0 383.8 79.8 304 178.3 304zM436 218.2c0-7 4.5-13.3 11.3-14.8c10.5-2.4 21.5-3.7 32.7-3.7s22.2 1.3 32.7 3.7c6.8 1.5 11.3 7.8 11.3 14.8v30.6c7.9 3.4 15.4 7.7 22.3 12.8l24.9-14.3c6.1-3.5 13.7-2.7 18.5 2.4c7.6 8.1 14.3 17.2 20.1 27.2s10.3 20.4 13.5 31c2.1 6.7-1.1 13.7-7.2 17.2l-25 14.4c.4 4 .7 8.1 .7 12.3s-.2 8.2-.7 12.3l25 14.4c6.1 3.5 9.2 10.5 7.2 17.2c-3.3 10.6-7.8 21-13.5 31s-12.5 19.1-20.1 27.2c-4.8 5.1-12.5 5.9-18.5 2.4l-24.9-14.3c-6.9 5.1-14.3 9.4-22.3 12.8l0 30.6c0 7-4.5 13.3-11.3 14.8c-10.5 2.4-21.5 3.7-32.7 3.7s-22.2-1.3-32.7-3.7c-6.8-1.5-11.3-7.8-11.3-14.8V454.8c-8-3.4-15.6-7.7-22.5-12.9l-24.7 14.3c-6.1 3.5-13.7 2.7-18.5-2.4c-7.6-8.1-14.3-17.2-20.1-27.2s-10.3-20.4-13.5-31c-2.1-6.7 1.1-13.7 7.2-17.2l24.8-14.3c-.4-4.1-.7-8.2-.7-12.4s.2-8.3 .7-12.4L343.8 325c-6.1-3.5-9.2-10.5-7.2-17.2c3.3-10.6 7.7-21 13.5-31s12.5-19.1 20.1-27.2c4.8-5.1 12.4-5.9 18.5-2.4l24.8 14.3c6.9-5.1 14.5-9.4 22.5-12.9V218.2zm92.1 133.5a48.1 48.1 0 1 0 -96.1 0 48.1 48.1 0 1 0 96.1 0z" />
-                        </svg>
-                        <h1>Permisos </h1>
-                    </a>
-                    <a href="/maestro" class="flex gap-4  text-[13px] items-center"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                            <style>
-                                svg {
-                                    fill: #ffffff
-                                }
-                            </style>
-                            <path d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z" />
-                        </svg>
-                        <h1>Maestros</h1>
-                    </a>
-                    <a href="/alumno" class="flex gap-4 text-[13px] items-center"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+           
+                    <a href="/admAlumnoMaestro" class="flex gap-4 text-[13px] items-center"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                             <style>
                                 svg {
                                     fill: #ffffff
@@ -119,11 +117,7 @@ extract($_SESSION['user']);
                         </svg>
                         <h1>Alumnos</h1>
                     </a>
-                    <a href="/clases" class="flex gap-4 text-[13px] items-center"><span class="material-symbols-outlined">
-                            jamboard_kiosk
-                        </span>
-                        <h1>Clases</h1>
-                    </a>
+                 
 
                 </div>
             </div>
@@ -145,7 +139,7 @@ extract($_SESSION['user']);
 
 
                 <div class="flex  content-center  gap-[1rem] items-center">
-                <h1><?= $Nombre ?></h1> <button  onclick="toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                <h1><?= $Nombre ?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                         <style>
                             svg {
                                 fill: #a7a8a9
@@ -180,22 +174,25 @@ extract($_SESSION['user']);
 
 
                 <div class="flex  justify-between p-[1rem]">
-                    <h1 class="text-[1.5rem] m-[0.5rem]">Lista de Pemisos</h1>
-                    <div class="flex gap-[1rem]"><a class="text-blue-700">Home</a>/<a>Dashboard</a> </div>
+                    <h1 class="text-[1.5rem] m-[0.5rem]">Lista de Alumnos</h1>
+                    <div class="flex gap-[1rem]"><a class="text-blue-700">Home</a>/<a >Dashboard</a> </div>
                 </div>
 
                 <div class="bg-white shadow-xl  h-[70vh] w-[80vw] mx-[1rem] content-center rounded-xl p-[1rem] items-center justify-center">
 
                    <div class="  flex flex-col content-center justify-center items-center">
-                     <h1 class="text-[15px] m-[1rem] w-[100%]  border-b-4 ">Informacion de pedidos</h1> <div>
+                     <h1 class="text-[15px] m-[1rem] w-[100%]  border-b-4 ">Informacion de Alumnos</h1> <div>
 
                    <table class=" border bg-slate-200 h-[55vh] w-[78vw] border-slate-500 ...">
   <thead class="bg-white h-[5vh]">
     <tr>
-      <th class="border border-slate-600 ... w-[10vw]">#</th>
-      <th class="border border-slate-600 ... w-[27vw]">Email/Usuario</th>
-      <th class="border border-slate-600 ...">Permiso</th>
-      <th class="border border-slate-600 ...">Estado</th>
+      <th class="border border-slate-600 ... ">#</th>
+      
+      <th class="border border-slate-600 ... ">Correo Electronico</th>
+      <th class="border border-slate-600 ... w-[27vw]">Nombre(s)</th>
+      <th class="border border-slate-600 ... w-[27vw]">Apellido</th>
+      <th class="border border-slate-600 ...">Direccion</th>
+      <th class="border border-slate-600 ...">Fec. de nacimiento</th>
       <th class="border border-slate-600 ...">Acciones</th>
       
     </tr>
@@ -211,15 +208,33 @@ extract($datas)
         ?>
 
  <tr>
-      <td class="border text-center border-slate-700 ..."> <?= $ID ?></td>
-      <td class="border text-center border-slate-700 ..."> <?= $CorreoElectronico ?> / <?= $Nombre?></td>
-      <td class="border text-center border-slate-700 ..."><?= $nombre?></td>
-      <td class="border text-center border-slate-700 ...">activo </td>
-      <td class="border text-center border-slate-700 ... " >
-      <button  onclick="toggleModal2()">    
+      <td class="border text-center border-slate-700 ... w-[7vw]"> <?= $ID ?></td>
+      <td class="border text-center border-slate-700 ... w-[20vw]"> <?= $CorreoElectronico ?> / <?= $Nombre?></td>
+      <td class="border text-center border-slate-700 ... w-[20vw]"><?= $Nombre?></td>
+      <td class="border text-center border-slate-700 ..."><?=$Apellido?> </td>
+      <td class="border text-center border-slate-700 ... w-[20vw]"><?=$direccion?></td>
+      <td class="border text-center border-slate-700 ... w-[20vw]"><?=$fec_nac?></td>
+      <td class="border text-center border-slate-700 ..."> 
+        
+      <div class="flex  justify-center content-center items-center gap-2">
+        
+     
+      <form action="/delete" method="post">
+        <button type="submit" value="<?= $ID ?>" name="id">
+      <svg   xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+     
+     <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" fill="#c70a0a" /></svg>
+        </button>
+      </form>
+     
+     
+     / 
+      
+     
+     <button  onclick="toggleModal2()">    
       <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"> 
         <path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg> 
-      </button>
+      </button></div>
     </td>
       
     </tr>

@@ -1,5 +1,6 @@
 <?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/src/Models/Usuario.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/src/Models/Admin.php");
 require_once ($_SERVER['DOCUMENT_ROOT']. '/config/database.php');
 
 class UsuarioController {
@@ -9,7 +10,8 @@ public function index(){
     $usuario = new Usuario();
     $data = $usuario->AllUsuarios();
      
-    extract($data);
+    $img = $usuario->aletoriaImagenes();
+
     include $_SERVER['DOCUMENT_ROOT']. "/src/views/login.php";
     
 
@@ -26,6 +28,8 @@ public function ingresar($data)
    if (password_verify($data["contrasena"], $contrasena )) {
 
     session_start();
+    $_SESSION['user'] = $newseccion; 
+    
   
     if ($newseccion) {
 
@@ -55,10 +59,22 @@ public function ingresar($data)
 }  
 
   
-public function dashboard(){
+public function logout(){
 
-    include $_SERVER["DOCUMENT_ROOT"] . "/src/views/viewsplantillas/dashboard.php";
+    session_start();
+    session_destroy();
+    header("Location: /index.php");
+    
+}
 
+
+public function editarPefil($data){
+
+    $update = new Usuario();
+    $data = $update->updateperfil($data);
+ 
+    if ($data){
+    header("Location: /index.php");}
     
 }
 

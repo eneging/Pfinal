@@ -77,3 +77,34 @@ background-color: white;
     border-radius: 10px;
         background-color: #E0E0E0;
     }
+
+
+
+
+    .modal2{
+position: fixed;
+width: 100vw;
+height: 100vh;
+filter:opacity(85%);
+       background-color: black;
+       display: flex;
+       align-items: center;
+      justify-content: center;
+
+      display: none;
+    }
+
+
+    .modal2 > div {
+        
+        filter:none;
+    width: 35vw;
+    height: 80vh;
+        background: white;
+    }
+
+
+    .Modal2 .modal2 {
+
+        display: flex;
+    }

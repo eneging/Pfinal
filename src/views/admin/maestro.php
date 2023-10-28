@@ -1,8 +1,8 @@
 <?php 
 
 session_start();
-
 extract($_SESSION['user']);
+
 ?>
 
 
@@ -42,37 +42,67 @@ extract($_SESSION['user']);
     </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <div class="h-screen  flex  justify-start ">
-      <div class="modal2">
 
-      <div class="flex justify-center content-center items-center flex-col gap-[1rem] p-[2rem]"> 
 
-      <form method="post" action="/editarpermiso" class="flex justify-center content-center items-center flex-col gap-[1rem] bg-white">
-       <h1 class="text-[3rem]">Editar Permiso</h1>
-       <input type="text" />
-         <label>Email del Usuario</label>
-          <input class="border-2 border-solid"  name="email" require/>
 
-          <label>Rol del Usuario</label>
-        <select class="border-2 border-solid" name="rol" require > 
-            <option value="1">Administrador</option>
-            <option value="3">Maestro</option>
-            <option value="2">Alumno</option>
-        </select>
 
-           <label>estado activo</label>
-          <input type="checkbox" name="estado"  />
+    <div class="modal2" >
+
+<div class="flex justify-center content-center items-center flex-col text-[10px] "> 
+
+<form method="post" action="/editarmaestro" class="flex justify-center content-center items-center flex-col gap-[1rem] bg-white ">
+ <h1 class="text-[1rem]">Editar Permiso</h1>
+ <input type="text" />
+
+   <label>Correo Electronico</label>
+    <input class="border-2 border-solid" type="email"  name="email" require/>
+
+    <label>Nombre(s)</label>
+    <input class="border-2 border-solid" type="text"  name="nombre" require/>
+ 
+    <label>Apellido(s)</label>
+    <input class="border-2 border-solid"  type="text"  name="apellido" require/>
+
+    <label>Direccion</label>
+    <input class="border-2 border-solid" type="text"  name="direccion" require/>
+
+    <label>Fecha de Nacimiento</label>
+    <input class="border-2 border-solid" type="date" name="fecha" require/>
+
+
+    <label>Clase Asignada</label>
+  <select class="border-2 border-solid" name="clase" require > 
+  <?php
+   
+
+  
+  foreach ( $dataall as $data1){
+extract($data1)
+  
+  ?>
+  
+  <option value="<?= $clase_id ?>"><?= $materia ?></option>
+     
+  <?php   
+}?>
+    </select>
+
+  
 
 <div>
-   
+
 
 <button class="bg-blue-500 text-white p-[1rem]">Guardar Cambios</button></div>
 
-      
-      </form>
-       
-      <button type="submit" class="bg-gray-700 text-white  p-[1rem] " onclick="toggleModal2()" >Close</button>
-      </div>
-      </div>
+
+</form>
+ 
+<button type="submit" class="bg-gray-700 text-white  p-[1rem] " onclick="toggleModal2()" >Close</button>
+</div>
+</div>
+
+
+
 
 
         <sidebar class="w-[17vw] bg-gray-800 shadow-2x text-white divide-y divide">
@@ -145,7 +175,7 @@ extract($_SESSION['user']);
 
 
                 <div class="flex  content-center  gap-[1rem] items-center">
-                <h1><?= $Nombre ?></h1> <button  onclick="toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                <h1><?= $Nombre ?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                         <style>
                             svg {
                                 fill: #a7a8a9
@@ -192,11 +222,13 @@ extract($_SESSION['user']);
                    <table class=" border bg-slate-200 h-[55vh] w-[78vw] border-slate-500 ...">
   <thead class="bg-white h-[5vh]">
     <tr>
-      <th class="border border-slate-600 ... w-[10vw]">#</th>
-      <th class="border border-slate-600 ... w-[27vw]">Email/Usuario</th>
-      <th class="border border-slate-600 ...">Permiso</th>
-      <th class="border border-slate-600 ...">Estado</th>
-      <th class="border border-slate-600 ...">Acciones</th>
+      <th class="border border-slate-600 ... ">#</th>
+      <th class="border border-slate-600 ... ">Nombre</th>
+      <th class="border border-slate-600 ... ">Email</th>
+      <th class="border border-slate-600 ...">Direccion</th>
+      <th class="border border-slate-600 ...">Fec . de Nacimiento</th>
+      <th class="border border-slate-600 ...">clase Asignada</th>
+      <th class="border border-slate-600 ...  ]">Acciones</th>
       
     </tr>
   </thead>
@@ -211,12 +243,13 @@ extract($datas)
         ?>
 
  <tr>
-      <td class="border text-center border-slate-700 ..."> <?= $ID ?></td>
-      <td class="border text-center border-slate-700 ..."> <?= $CorreoElectronico ?> / <?= $Nombre?></td>
-      <td class="border text-center border-slate-700 ..."><?= $nombre?></td>
-      <td class="border text-center border-slate-700 ...">activo </td>
-      <td class="border text-center border-slate-700 ... " >
-      <button  onclick="toggleModal2()">    
+      <td class="border text-center border-slate-700 ... w-[6vw]"> <?= $ID ?></td>
+      <td class="border text-center border-slate-700 ..."><?= $Nombre ?></td>
+      <td class="border text-center border-slate-700 ...  w-[20vw]"><?= $CorreoElectronico ?></td>
+      <td class="border text-center border-slate-700 ... w-[20vw]"><?= $direccion ?> </td>
+      <td class="border text-center border-slate-700 ...w-[20vw]"><?= $fec_nac ?> </td>
+      <td class="border text-center border-slate-700 ..."><?= $materia ?> </td>
+      <td class="border text-center border-slate-700 ..."><button  onclick="toggleModal2()">    
       <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"> 
         <path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg> 
       </button>
