@@ -86,6 +86,16 @@ public function createalumno($data){
     
 }
 
+public function createmaestro($data){
+
+    $update = new Admin();
+    $data = $update->createnewmaestro($data);
+ 
+    if ($data){
+    header("Location: /maestro");}
+    
+}
+
 public function deleteAlumno($data){
 extract($data);
 

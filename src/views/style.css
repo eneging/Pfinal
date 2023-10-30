@@ -108,3 +108,38 @@ filter:opacity(85%);
 
         display: flex;
     }
+
+    
+    .Modal3 .modal3 {
+
+        display: flex;
+    }
+
+
+    
+    .modal3{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        filter:opacity(85%);
+               background-color: black;
+               display: flex;
+               align-items: center;
+              justify-content: center;
+        display: none;
+             
+            }
+        
+        
+            .modal3 > div {
+                
+                filter:none;
+            width: 35vw;
+            height: 80vh;
+                background: white;
+            }
+        
+            a {
+
+                cursor: pointer;
+            }

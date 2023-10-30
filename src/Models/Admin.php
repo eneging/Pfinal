@@ -51,7 +51,7 @@ public function createnewalumno($data){
 
     $hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    $res = $this->connection->query("INSERT INTO `usuarios`(`Nombre`, `Apellido`,  `CorreoElectronico`,  `contrasena`, `direccion`, `fec_nac` , rol_id , clase_id, DNI ) VALUES ('$nombre','$apellido','$email','$hash','$direccion','$fecha','2' , '3', '$dni')");
+    $res = $this->connection->query("INSERT INTO `usuarios`(`Nombre`, `Apellido`,  `CorreoElectronico`,  `contrasena`, `direccion`, `fec_nac` , rol_id , clase_id, DNI_id ) VALUES ('$nombre','$apellido','$email','$hash','$direccion','$fecha','2' , '3', '$dni')");
    
     if ($res){
         return true;
@@ -60,6 +60,25 @@ public function createnewalumno($data){
     }
 
 }
+
+
+public function createnewmaestro($data){
+
+    extract($data);
+
+    $hash = password_hash($contrasena, PASSWORD_DEFAULT);
+
+    $res = $this->connection->query("INSERT INTO `usuarios`(`Nombre`, `Apellido`,  `CorreoElectronico`,  `contrasena`, `direccion`, `fec_nac`, rol_id, clase_id ) VALUES ('$nombre','$apellido','$email','$hash','$direccion','$fecha','3','2')");
+   
+    if ($res){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
+
 
 
 
@@ -98,7 +117,7 @@ public function allmaestros()
 
 public function allestudiante()
 {
-   $respuesta = $this->connection->query("SELECT * FROM `usuarios`, clases WHERE rol_id= 2  AND usuarios.clase_id = clases.id ");
+   $respuesta = $this->connection->query("SELECT * FROM `usuarios`, clases WHERE rol_id= 2  AND usuarios.clase_id = clases.id");
    $data_empleados = $respuesta->fetchAll(PDO::FETCH_ASSOC);
    
    return $data_empleados;

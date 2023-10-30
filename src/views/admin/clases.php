@@ -133,7 +133,7 @@ extract($_SESSION['user']);
 
 <div><span class="material-symbols-outlined">
         logout
-    </span> <a style="color:grey;text-decoration:none" href="/logout">
+    </span> <a style="color:grey;text-decoration:none" href="">
         <p> Logout</p>
     </a>
 
@@ -176,8 +176,8 @@ extract($datas)
  <tr>
       <td class="border text-center border-slate-700 ..."> <?= $ID ?></td>
       <td class="border text-center border-slate-700 ..."> <?= $materia ?></td>
-      <td class="border text-center border-slate-700 ..."><?= $rol_id?></td>
-      <td class="border text-center border-slate-700 ...">$telefono </td>
+      <td class="border text-center border-slate-700 ..."></td>
+      <td class="border text-center border-slate-700 ..."><?= $Nombre ?> </td>
       <td class="border text-center border-slate-700 ..."><a href="/edit">editar</a> / 
     <form action="/index.php" method="post">
     

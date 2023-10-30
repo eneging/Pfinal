@@ -87,6 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $AdminController->createalumno($_POST);
                     break;
 
+                    case '/createmaestro':
+                        $AdminController->createmaestro($_POST);
+                        break;
+    
+
                     case '/delete':
                         $AdminController->deleteAlumno($_POST);
                         break;

@@ -31,6 +31,11 @@ extract($_SESSION['user']);
         }
 
 
+        function toggleModal3() {
+            var element = document.body;
+            element.classList.toggle("Modal3");
+        }
+
 
     const darkMode = document.querySelector('#theme-toggle');
     darkMode.addEventListener('click', ()=>{
@@ -43,6 +48,64 @@ extract($_SESSION['user']);
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <div class="h-screen  flex  justify-start ">
 
+    <div class="modal3">
+
+<div class="flex justify-center content-center items-center flex-col gap-[1rem] p-[2rem]">
+
+    <form method="post" action="/createmaestro" class="flex justify-center content-center items-center flex-col  bg-white">
+        <h1 class="text-[2rem]">Crear Maestro</h1>
+
+
+
+        <label>Correo Electronico</label>
+        <input class="border-2 border-solid" type="email" name="email" require />
+
+        <label>Contrasena</label>
+        <input class="border-2 border-solid" type="text" name="contrasena" require />
+
+        <label>Nombre(s)</label>
+        <input class="border-2 border-solid" type="text" name="nombre" require />
+
+        <label>Apellido(s)</label>
+        <input class="border-2 border-solid" type="text" name="apellido" require />
+
+        <label>Direccion</label>
+        <input class="border-2 border-solid" type="text" name="direccion" require />
+
+        <label>Fecha de Nacimiento</label>
+        <input class="border-2 border-solid" type="date" name="fecha" require />
+
+        <label>Clase Asignada</label>
+  <select class="border-2 border-solid" name="clase" require > 
+  <?php
+   
+
+  
+  foreach ( $dataall as $data1){
+extract($data1)
+  
+  ?>
+  
+  <option value="<?= $clase_id ?>"><?= $materia ?></option>
+     
+  <?php   
+}?>
+    </select>
+
+  
+
+
+
+<div class="flex items-center">
+            <button type="submit" class="bg-blue-500  text-white p-[1vh] m-[0.5rem]">Guardar Cambios</button>
+       
+
+
+    </form>
+
+    <a  class="bg-gray-700 text-white p-[0.5vh] h-[5vh]" onclick="toggleModal3()">Close</a></div>
+</div>
+</div>
 
 
 
@@ -51,7 +114,7 @@ extract($_SESSION['user']);
 <div class="flex justify-center content-center items-center flex-col text-[10px] "> 
 
 <form method="post" action="/editarmaestro" class="flex justify-center content-center items-center flex-col gap-[1rem] bg-white ">
- <h1 class="text-[1rem]">Editar Permiso</h1>
+ <h1 class="text-[1rem]">Editar  Maestro</h1>
  <input type="text" />
 
    <label>Correo Electronico</label>
@@ -210,14 +273,14 @@ extract($data1)
 
 
                 <div class="flex  justify-between p-[1rem]">
-                    <h1 class="text-[1.5rem] m-[0.5rem]">Lista de Pemisos</h1>
+                    <h1 class="text-[1.5rem] m-[0.5rem]">Lista de Maestros</h1> <button  onclick="toggleModal3()" class="bg-blue-500 text-white p-[1rem]">Agregar Maestro</button>
                     <div class="flex gap-[1rem]"><a class="text-blue-700">Home</a>/<a>Dashboard</a> </div>
                 </div>
 
                 <div class="bg-white shadow-xl  h-[70vh] w-[80vw] mx-[1rem] content-center rounded-xl p-[1rem] items-center justify-center">
 
                    <div class="  flex flex-col content-center justify-center items-center">
-                     <h1 class="text-[15px] m-[1rem] w-[100%]  border-b-4 ">Informacion de pedidos</h1> <div>
+                     <h1 class="text-[15px] m-[1rem] w-[100%]  border-b-4 ">Informacion de maestros</h1>  <div>
 
                    <table class=" border bg-slate-200 h-[55vh] w-[78vw] border-slate-500 ...">
   <thead class="bg-white h-[5vh]">
