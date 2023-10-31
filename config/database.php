@@ -3,7 +3,7 @@
 class Database {
 
 private $hostname = "localhost";
-private $database = "funval";
+private $database = "basededatos";
 private $username = "root";
 private $password = "";
 private $charset = "utf8";

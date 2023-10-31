@@ -33,17 +33,17 @@ public function ingresar($data)
   
     if ($newseccion) {
 
-   switch ($rol_id) {
-    case 1:
+   switch ($rol) {
+    case 'administrador':
         include $_SERVER["DOCUMENT_ROOT"] . "/src/views/admin/dashboard.php";
     
         break;
     
-        case 2:
+        case 'alumno':
             include $_SERVER["DOCUMENT_ROOT"] . "/src/views/alumno/dashboard.php";
             break;
 
-            case 3:
+            case 'maestro':
                 include $_SERVER["DOCUMENT_ROOT"] . "/src/views/maestro/dashboard.php";
                 break;
 

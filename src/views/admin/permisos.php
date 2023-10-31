@@ -54,9 +54,9 @@ extract($_SESSION['user']);
 
           <label>Rol del Usuario</label>
         <select class="border-2 border-solid" name="rol" require > 
-            <option value="1">Administrador</option>
-            <option value="3">Maestro</option>
-            <option value="2">Alumno</option>
+            <option value="administrador">Administrador</option>
+            <option value="maestro">Maestro</option>
+            <option value="alumno">Alumno</option>
         </select>
 
            <label>estado activo</label>
@@ -81,7 +81,7 @@ extract($_SESSION['user']);
             </div>
             <div class="flex flex-col p-[1rem] gap-[1rem] ">
             <h2 class="text-[13px]">Administrador</h2>
-                <h1 class="  font-bold text-[15px]"><?= $Nombre ?></h1>
+                <h1 class="  font-bold text-[15px]"><?= $nombre ?></h1>
                
             </div>
             <div class="flex flex-col justify-center  content-center items-center ">
@@ -99,7 +99,7 @@ extract($_SESSION['user']);
                         </svg>
                         <h1>Permisos </h1>
                     </a>
-                    <a href="/maestro" class="flex gap-4  text-[13px] items-center"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <a href="/maestro" class="flex gap-4  text-[13px] items-center"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
                             <style>
                                 svg {
                                     fill: #ffffff
@@ -145,7 +145,7 @@ extract($_SESSION['user']);
 
 
                 <div class="flex  content-center  gap-[1rem] items-center">
-                <h1><?= $Nombre ?></h1> <button  onclick="toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                <h1><?= $nombre ?></h1> <button  onclick="toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                         <style>
                             svg {
                                 fill: #a7a8a9
@@ -211,9 +211,9 @@ extract($datas)
         ?>
 
  <tr>
-      <td class="border text-center border-slate-700 ..."> <?= $ID ?></td>
-      <td class="border text-center border-slate-700 ..."> <?= $CorreoElectronico ?> / <?= $Nombre?></td>
-      <td class="border text-center border-slate-700 ..."><?= $nombre?></td>
+      <td class="border text-center border-slate-700 ..."> <?= $usuario_id ?></td>
+      <td class="border text-center border-slate-700 ..."> <?= $correo ?> / <?= $nombre?></td>
+      <td class="border text-center border-slate-700 ..."><?= $rol?></td>
       <td class="border text-center border-slate-700 ...">activo </td>
       <td class="border text-center border-slate-700 ... " >
       <button  onclick="toggleModal2()">    

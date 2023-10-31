@@ -98,7 +98,7 @@ extract($_SESSION['user']);
             </div>
             <div class="flex flex-col p-[1rem] gap-[1rem] ">
             <h2 class="text-[13px]">Maestro</h2>
-                <h1 class="  font-bold text-[15px]"><?= $Nombre ?></h1>
+                <h1 class="  font-bold text-[15px]"><?= $nombre ?></h1>
                
             </div>
             <div class="flex flex-col justify-center  content-center items-center ">
@@ -139,7 +139,7 @@ extract($_SESSION['user']);
 
 
                 <div class="flex  content-center  gap-[1rem] items-center">
-                <h1><?= $Nombre ?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                <h1><?= $nombre ?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                         <style>
                             svg {
                                 fill: #a7a8a9
@@ -158,7 +158,7 @@ extract($_SESSION['user']);
 <div><span class="material-symbols-outlined">
         account_circle
     </span>
-    <p> <a style="text-decoration-line:none" href="./dashboard.php">Perfil</a></p>
+    <p> <a style="text-decoration-line:none" href="/editmaestro">Perfil</a></p>
 </div>
 
 
@@ -188,11 +188,10 @@ extract($_SESSION['user']);
     <tr>
       <th class="border border-slate-600 ... ">#</th>
       
-      <th class="border border-slate-600 ... ">Correo Electronico</th>
-      <th class="border border-slate-600 ... w-[27vw]">Nombre(s)</th>
-      <th class="border border-slate-600 ... w-[27vw]">Apellido</th>
-      <th class="border border-slate-600 ...">Direccion</th>
-      <th class="border border-slate-600 ...">Fec. de nacimiento</th>
+      <th class="border border-slate-600 ... ">Nombre de alumno</th>
+      <th class="border border-slate-600 ... w-[27vw]">calificacion</th>
+      <th class="border border-slate-600 ... w-[27vw]">mensaje</th>
+     
       <th class="border border-slate-600 ...">Acciones</th>
       
     </tr>
@@ -208,19 +207,18 @@ extract($datas)
         ?>
 
  <tr>
-      <td class="border text-center border-slate-700 ... w-[7vw]"> <?= $ID ?></td>
-      <td class="border text-center border-slate-700 ... w-[20vw]"> <?= $CorreoElectronico ?> / <?= $Nombre?></td>
-      <td class="border text-center border-slate-700 ... w-[20vw]"><?= $Nombre?></td>
-      <td class="border text-center border-slate-700 ..."><?=$Apellido?> </td>
-      <td class="border text-center border-slate-700 ... w-[20vw]"><?=$direccion?></td>
-      <td class="border text-center border-slate-700 ... w-[20vw]"><?=$fec_nac?></td>
+      <td class="border text-center border-slate-700 ... w-[7vw]"> <?= $usuario_id ?></td>
+      <td class="border text-center border-slate-700 ... "> <?= $nombre?></td>
+      <td class="border text-center border-slate-700 ... "></td>
+      <td class="border text-center border-slate-700 ... w-[20vw]"> </td>
+      
       <td class="border text-center border-slate-700 ..."> 
         
       <div class="flex  justify-center content-center items-center gap-2">
         
      
       <form action="/delete" method="post">
-        <button type="submit" value="<?= $ID ?>" name="id">
+        <button type="submit" value="<?= $usuario_id ?>" name="id">
       <svg   xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
      
      <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" fill="#c70a0a" /></svg>
