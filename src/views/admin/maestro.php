@@ -115,9 +115,9 @@ extract($data1)
 
 <div class="flex justify-center content-center items-center flex-col text-[10px] "> 
 
-<form method="post" action="/editarmaestro" class="flex justify-center content-center items-center flex-col gap-[2vh] bg-white ">
+<form method="post" action="/editarmaestro" class="flex justify-center content-center items-center flex-col gap-[2vh] h-[100vh] bg-white ">
  <h1 class="text-[2rem]">Editar  Maestro</h1>
- <input type="text" />
+ 
 
    <label>Correo Electronico</label>
     <input class="border-2 border-solid text-[1rem]" type="email"  name="email" require/>
@@ -146,7 +146,7 @@ extract($data1)
   
   ?>
   
-  <option value="<?= $materia_id  ?>"><?= $nombre ?></option>
+  <option value=<?= $materia_id?> name="clase"><?= $nombre ?></option>
      
   <?php   
 }?>
