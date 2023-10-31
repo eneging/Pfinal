@@ -50,7 +50,7 @@ extract($_SESSION['user']);
        <h1 class="text-[3rem]">Editar Permiso</h1>
        <input type="text" />
          <label>Email del Usuario</label>
-          <input class="border-2 border-solid"  name="email" require/>
+          <input class="border-2 border-solid" placeholder="escribe tu email" name="email" require/>
 
           <label>Rol del Usuario</label>
         <select class="border-2 border-solid" name="rol" require > 
@@ -164,7 +164,7 @@ extract($_SESSION['user']);
 <div><span class="material-symbols-outlined">
         account_circle
     </span>
-    <p> <a style="text-decoration-line:none" href="./dashboard.php">Perfil</a></p>
+    <p> <a style="text-decoration-line:none" >Perfil</a></p>
 </div>
 
 

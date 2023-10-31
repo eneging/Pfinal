@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,7 +119,7 @@
 <div><span class="material-symbols-outlined">
         account_circle
     </span>
-    <p> <a style="text-decoration-line:none" href="./dashboard.php">Perfil</a></p>
+    <p> <a style="text-decoration-line:none" >Perfil</a></p>
 </div>
 
 
