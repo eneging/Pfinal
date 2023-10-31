@@ -34,7 +34,7 @@
             </div>
             <div class="flex flex-col p-[1rem] gap-[1rem] ">
             <h2 class="text-[13px]">Administrador</h2>
-                <h1 class="  font-bold text-[15px]"><?= $Nombre ?></h1>
+                <h1 class="  font-bold text-[15px]"><?= $nombre ?></h1>
                
             </div>
             <div class="flex flex-col justify-center  content-center items-center ">
@@ -98,7 +98,7 @@
 
 
                 <div class="flex  content-center  gap-[1rem] items-center">
-                <h1><?= $Nombre ?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                <h1><?= $nombre ?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                         <style>
                             svg {
                                 fill: #a7a8a9

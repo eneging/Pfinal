@@ -26,7 +26,7 @@ class Usuario {
 
     public function AllUsuarios()
     {
-       $respuesta = $this->connection->query("SELECT * FROM `usuarios`, roles , clases WHERE usuarios.rol_id = roles.id AND usuarios.clase_id = clases.id");
+       $respuesta = $this->connection->query("SELECT * FROM `usuarios`");
        $data_empleados = $respuesta->fetchAll(PDO::FETCH_ASSOC);
        
        return $data_empleados;
@@ -56,7 +56,7 @@ class Usuario {
       $usuario = $data["correo"];
       
 
-      $respuesta = $this->connection->query("SELECT * FROM usuarios where  CorreoElectronico = '$usuario'");
+      $respuesta = $this->connection->query("SELECT * FROM usuarios where  correo = '$usuario'");
       $data_usuario = $respuesta->fetch(PDO::FETCH_ASSOC);
 
 

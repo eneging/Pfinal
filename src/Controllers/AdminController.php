@@ -22,6 +22,10 @@ public function administrarMaestro() {
     $usuario = new Admin();
     $data = $usuario->allmaestros();
 
+    
+    $usuario = new Admin();
+    $datamateria = $usuario->allmaterias();
+
     $usuario = new Usuario();
     $dataall = $usuario->AllUsuarios();
        
@@ -48,8 +52,8 @@ public function administrarClases() {
 
 
     
-    $usuario = new Usuario();
-    $data = $usuario->AllUsuarios();
+    $usuario = new Admin();
+    $data = $usuario->allmaestro2();
 
 
     include $_SERVER['DOCUMENT_ROOT']. "/src/views/admin/clases.php";
@@ -73,6 +77,17 @@ public function actualizarmaestro($data){
  
     if ($data){
     header("Location: /maestro");}
+    
+}
+
+
+public function actualizaralumno($data){
+
+    $update = new Admin();
+    $data = $update->updatealumno($data);
+ 
+    if ($data){
+    header("Location: /alumno");}
     
 }
 

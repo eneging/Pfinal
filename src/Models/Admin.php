@@ -16,7 +16,7 @@ public function updatePermisos($data){
 
     extract($data);
 
-    $res = $this->connection->query("UPDATE `usuarios` SET `rol_id`= $rol WHERE CorreoElectronico = '$email'");
+    $res = $this->connection->query("UPDATE `usuarios` SET `rol`= '$rol' WHERE correo = '$email'");
    
     if ($res){
         return true;
@@ -45,13 +45,33 @@ public function updatemaestro($data){
 }
 
 
+public function updatealumno($data){
+
+    extract($data);
+
+    $res = $this->connection->query("UPDATE `usuarios` 
+    SET `nombre`='$nombre', `Apellido`='$apellido', `correo`='$email', `direccion`='$direccion', `fec_nac`='$fecha' 
+    WHERE `correo`='$email';
+    ");
+   
+    
+    if ($res){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
+
 public function createnewalumno($data){
 
     extract($data);
 
     $hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    $res = $this->connection->query("INSERT INTO `usuarios`(`Nombre`, `Apellido`,  `CorreoElectronico`,  `contrasena`, `direccion`, `fec_nac` , rol_id , clase_id, DNI_id ) VALUES ('$nombre','$apellido','$email','$hash','$direccion','$fecha','2' , '3', '$dni')");
+    $res = $this->connection->query("INSERT INTO `usuarios`(`nombre`, `Apellido`, `correo`, `contrasena`, `direccion`, `fec_nac`, `rol`, `dni`) VALUES ('$nombre', '$apellido', '$email', '$hash', '$direccion', '$fecha', 'alumno', '$dni');
+    ");
    
     if ($res){
         return true;
@@ -68,7 +88,7 @@ public function createnewmaestro($data){
 
     $hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    $res = $this->connection->query("INSERT INTO `usuarios`(`Nombre`, `Apellido`,  `CorreoElectronico`,  `contrasena`, `direccion`, `fec_nac`, rol_id, clase_id ) VALUES ('$nombre','$apellido','$email','$hash','$direccion','$fecha','3','2')");
+    $res = $this->connection->query("INSERT INTO `usuarios`(`nombre`, `Apellido`,  `correo`,  `contrasena`, `direccion`, `fec_nac`, 'rol_id') VALUES ('$nombre','$apellido','$email','$hash','$direccion','$fecha','maestro')");
    
     if ($res){
         return true;
@@ -77,9 +97,6 @@ public function createnewmaestro($data){
     }
 
 }
-
-
-
 
 
 
@@ -89,7 +106,7 @@ public function deletestuden($id){
 
   
 
-    $res = $this->connection->query("DELETE FROM `usuarios` WHERE ID = '$id'");
+    $res = $this->connection->query("DELETE FROM `usuarios` WHERE usuario_id = '$id'");
    
     if ($res){
         return true;
@@ -102,27 +119,43 @@ public function deletestuden($id){
 
 
 
-
-
 public function allmaestros()
 {
-   $respuesta = $this->connection->query("SELECT * FROM `usuarios`, clases WHERE rol_id = 3 AND usuarios.clase_id = clases.id; ");
+   $respuesta = $this->connection->query("SELECT usuarios.usuario_id as id , usuarios.nombre , usuarios.correo, usuarios.direccion, usuarios.fec_nac, materias.nombre as clase_asignada, usuarios.Apellido FROM `asignacion_maestros` , maestros , materias, usuarios WHERE asignacion_maestros.maestro_id = maestros.maestro_id AND maestros.usuario_id = usuarios.usuario_id AND asignacion_maestros.materia_id = materias.materia_id;");
    $data_empleados = $respuesta->fetchAll(PDO::FETCH_ASSOC);
    
    return $data_empleados;
 
 }
 
+public function allmaterias()
+{
+   $respuesta = $this->connection->query("SELECT * FROM `materias`");
+   $data_empleados = $respuesta->fetchAll(PDO::FETCH_ASSOC);
+   
+   return $data_empleados;
 
+}
 
 public function allestudiante()
 {
-   $respuesta = $this->connection->query("SELECT * FROM `usuarios`, clases WHERE rol_id= 2  AND usuarios.clase_id = clases.id");
+   $respuesta = $this->connection->query("SELECT * FROM `usuarios` WHERE rol= 'alumno'");
    $data_empleados = $respuesta->fetchAll(PDO::FETCH_ASSOC);
    
    return $data_empleados;
 
 }
+
+
+public function allmaestro2()
+{
+   $respuesta = $this->connection->query("SELECT usuarios.usuario_id as id , usuarios.nombre , usuarios.correo, usuarios.direccion, usuarios.fec_nac, materias.nombre as clase_asignada FROM `asignacion_maestros` , maestros , materias, usuarios WHERE asignacion_maestros.maestro_id = maestros.maestro_id AND maestros.usuario_id = usuarios.usuario_id AND asignacion_maestros.materia_id = materias.materia_id;");
+   $data_empleados = $respuesta->fetchAll(PDO::FETCH_ASSOC);
+   
+   return $data_empleados;
+
+}
+
 
 }
 

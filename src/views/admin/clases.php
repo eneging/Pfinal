@@ -44,7 +44,7 @@ extract($_SESSION['user']);
             </div>
             <div class="flex flex-col p-[1rem] gap-[1rem] ">
             <h2 class="text-[13px]">Administrador</h2>
-                <h1 class="  font-bold text-[15px]"><?= $Nombre ?></h1>
+                <h1 class="  font-bold text-[15px]"><?= $nombre ?></h1>
                
             </div>
             <div class="flex flex-col justify-center  content-center items-center ">
@@ -108,7 +108,7 @@ extract($_SESSION['user']);
 
 
                 <div class="flex  content-center  gap-[1rem] items-center">
-                <h1><?= $Nombre ?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                <h1><?= $nombre ?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                         <style>
                             svg {
                                 fill: #a7a8a9
@@ -133,7 +133,7 @@ extract($_SESSION['user']);
 
 <div><span class="material-symbols-outlined">
         logout
-    </span> <a style="color:grey;text-decoration:none" href="">
+    </span> <a style="color:grey;text-decoration:none" href="/logout">
         <p> Logout</p>
     </a>
 
@@ -174,10 +174,10 @@ extract($datas)
         ?>
 
  <tr>
-      <td class="border text-center border-slate-700 ..."> <?= $ID ?></td>
-      <td class="border text-center border-slate-700 ..."> <?= $materia ?></td>
-      <td class="border text-center border-slate-700 ..."></td>
-      <td class="border text-center border-slate-700 ..."><?= $Nombre ?> </td>
+      <td class="border text-center border-slate-700 ..."> <?= $id ?></td>
+      <td class="border text-center border-slate-700 ..."> <?= $clase_asignada ?></td>
+      <td class="border text-center border-slate-700 ..."><?=$nombre?></td>
+      <td class="border text-center border-slate-700 ...">Alumno</td>
       <td class="border text-center border-slate-700 ..."><a href="/edit">editar</a> / 
     <form action="/index.php" method="post">
     
