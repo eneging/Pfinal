@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2023 a las 17:46:57
+-- Tiempo de generación: 31-10-2023 a las 18:35:50
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -39,8 +39,8 @@ CREATE TABLE `administradores` (
 
 INSERT INTO `administradores` (`admin_id`, `usuario_id`, `puesto`) VALUES
 (3, 7, 'Puesto predeterminado'),
-(5, 3, 'Puesto predeterminado'),
-(7, 15, 'Puesto predeterminado');
+(7, 15, 'Puesto predeterminado'),
+(8, 3, 'Puesto predeterminado');
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,8 @@ INSERT INTO `alumnos` (`alumno_id`, `usuario_id`, `carrera`) VALUES
 (2, 12, 'mecanica'),
 (6, 14, 'Carrera predeterminada'),
 (12, 18, 'Carrera predeterminada'),
-(13, 12, 'Carrera predeterminada');
+(13, 12, 'Carrera predeterminada'),
+(14, 19, 'Carrera predeterminada');
 
 -- --------------------------------------------------------
 
@@ -218,7 +219,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`usuario_id`, `nombre`, `Apellido`, `fec_nac`, `direccion`, `dni`, `correo`, `contrasena`, `rol`) VALUES
 (1, 'sabastian', 'perez', '2001-01-31', 'un cerro uan mas lejos', 0, 'sebastian@sebastian', 'sebastian', 'maestro'),
 (2, 'maestro', '', '0', '0', 0, 'maestro@maestro', '$2y$10$DGc6Ob/v2VF3bVle9fZIhumbWwsRSt49n3976GVPA0SKqkAdKYkf2', 'maestro'),
-(3, 'admin', '', '0', '0', 0, 'admin@admin', '$2y$10$KFMk26tPtLcpTiIWF2OCR.KWseEgSgosZILrkBRWdMYKQbUUMEXR6', 'administrador'),
+(3, 'admin', 'admin', '', '', 3422334, 'admin@admin', '$2y$10$LTzGkaLtSiR53ZGu29.yNuWdoGMl.u7bSwgRI5kX/7zD8EU0s5G1a', 'administrador'),
 (7, 'el jefe', '', '0', '0', 0, 'eljefe@eljefe', '$2y$10$PbZXvnsDvvDRcB3/PrxNAOAJfLH/U5/c6odvZv1Q0Cl/VpR/vDdI.', 'administrador'),
 (8, 'luis', 'lurdes', '2023-10-06', 'ewf', 0, 'luis@luis', '$2y$10$P0GXXSJ7mZGoLQeFnj4Uu.XCVYTFQWgsZE3xTQoikRzNRSWIR4WwW', 'maestro'),
 (9, 'sabastian', 'perez', '2001-01-31', 'un cerro uan mas lejos', 0, 'sebastian@sebastian', '$2y$10$7gfm9Pckxu3aZEfSiOwn4OhJIVB5xTYsQNJRsPOKBR6xwY6sANXjK', 'maestro'),
@@ -226,7 +227,8 @@ INSERT INTO `usuarios` (`usuario_id`, `nombre`, `Apellido`, `fec_nac`, `direccio
 (12, 'edwar', 'rejas', '2023-10-11', 'pituco tuco', 0, 'alumno@alumno', '$2y$10$Vq/1BgTXJ4imYGEQ.QDxwe1nUN.t8Q67UPUAaUJqcnPRESdHHR0U2', 'alumno'),
 (14, 'marjorie', 'neira', '10/10/2004', 'av 23 cerca al farmacia', 423848235, 'marjorie@marjorie', '$2y$10$iG90cv7/Kv/EO.NQulyB.eldiBJXCMy0XQK47xc8K3aGpczAyvAsK', 'alumno'),
 (15, 'mario', 'juacni', '2023-10-24', 'dsfsd', 73336151, 'mario@mario', '$2y$10$tc9rC0dnCH/KRH1C5UKEyehjbJZPaV5Ud3BJOxq8JqJanIVzxhBoa', 'administrador'),
-(18, 'edwar', 'rejas', '2023-11-01', 'pituco tuco', 73336151, 'test@test', '$2y$10$N07G3cz8XpuVYDmtr7Yy9eJgWVg0hR0Bvfh5F41Ra.JbdNCW7jvYe', 'alumno');
+(18, 'edwar', 'rejas', '2023-11-01', 'pituco tuco', 73336151, 'test@test', '$2y$10$N07G3cz8XpuVYDmtr7Yy9eJgWVg0hR0Bvfh5F41Ra.JbdNCW7jvYe', 'alumno'),
+(19, 'machin', 'alberto', '2023-11-02', 'un cerro uan mas lejos', 73336151, 'en@en', '$2y$10$FY3SWV8UguUxMYGOGESApO8HeA/TDdpMXps8vBzbuQrok51e9n/eW', 'alumno');
 
 --
 -- Disparadores `usuarios`
@@ -341,13 +343,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `alumno_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `alumno_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `img`
@@ -365,7 +367,7 @@ ALTER TABLE `maestros`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas
