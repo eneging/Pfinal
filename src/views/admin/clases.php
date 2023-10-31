@@ -177,12 +177,9 @@ extract($datas)
       <td class="border text-center border-slate-700 ..."> <?= $id ?></td>
       <td class="border text-center border-slate-700 ..."> <?= $clase_asignada ?></td>
       <td class="border text-center border-slate-700 ..."><?=$nombre?></td>
-      <td class="border text-center border-slate-700 ...">Alumno</td>
-      <td class="border text-center border-slate-700 ..."><a href="/edit">editar</a> / 
-    <form action="/index.php" method="post">
-    
-      <button class="bg-blue-800 text-white" type="submit" name="id_empleado" value="<?= $ID_empleado ?>"> eliminar  </button>
-    </form>
+      <td class="border text-center border-slate-700 ...">1</td>
+      <td class="border text-center border-slate-700 ..."><a >editar</a> / 
+   <a>eliminar</a>
     </td>
       
     </tr>

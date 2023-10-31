@@ -176,7 +176,7 @@ extract($data1)
             </div>
             <div class="flex flex-col p-[1rem] gap-[1rem] ">
             <h2 class="text-[13px]">Administrador</h2>
-                <h1 class="  font-bold text-[15px]"><?= $nombre ?></h1>
+                <h1 class="  font-bold text-[15px]"><?=$_SESSION['user']['nombre']?></h1>
                
             </div>
             <div class="flex flex-col justify-center  content-center items-center ">
@@ -240,7 +240,7 @@ extract($data1)
 
 
                 <div class="flex  content-center  gap-[1rem] items-center">
-                <h1><?= $nombre ?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                <h1><?=$_SESSION['user']['nombre']?></h1> <button  onclick=" toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                         <style>
                             svg {
                                 fill: #a7a8a9
@@ -259,7 +259,7 @@ extract($data1)
 <div><span class="material-symbols-outlined">
         account_circle
     </span>
-    <p> <a style="text-decoration-line:none" href="./dashboard.php">Perfil</a></p>
+    <p> <a style="text-decoration-line:none" >Perfil</a></p>
 </div>
 
 
