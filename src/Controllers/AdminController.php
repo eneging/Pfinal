@@ -2,7 +2,6 @@
 require_once($_SERVER["DOCUMENT_ROOT"]."/src/Controllers/UsuarioController.php");
 
 
-
 class AdminController extends UsuarioController  {
 
 
@@ -17,11 +16,14 @@ public function administrarPermiso() {
 }
 
 public function administrarMaestro() {
-
+    
+    $usuario_id = 2; /// aqui va los valores pero no llege a terminare la logica ///;
     
     $usuario = new Admin();
     $data = $usuario->allmaestros();
 
+    $usuario = new Admin();
+    $datamaestro = $usuario->allmaestrosBy($usuario_id);
     
     $usuario = new Admin();
     $datamateria = $usuario->allmaterias();

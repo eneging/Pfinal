@@ -31,14 +31,22 @@ public function updatemaestro($data){
     extract($data);
 
     $res = $this->connection->query("UPDATE `usuarios` 
-    SET `Nombre`='$nombre', `Apellido`='$apellido', `CorreoElectronico`='$email', `clase_id`= 3, `direccion`='$direccion', `fec_nac`='$fecha' 
-    WHERE `CorreoElectronico`='$email';
+    SET `nombre`='$nombre', `Apellido`='$apellido', `correo`='$email', `direccion`='$direccion', `fec_nac`='$fecha' 
+    WHERE `correo`='$email';
     ");
    
     
     if ($res){
+       
+        $materia = $this->connection->query("UPDATE `asignacion_maestros` SET `materia_id`='$clase' WHERE `maestro_id`='$maestro_id'");
+    if ($materia) {
         return true;
-    }else{
+    } else {
+        return false;
+    }
+
+    }
+    else{
         return false;
     }
 
@@ -121,7 +129,17 @@ public function deletestuden($id){
 
 public function allmaestros()
 {
-   $respuesta = $this->connection->query("SELECT usuarios.usuario_id as id , usuarios.nombre , usuarios.correo, usuarios.direccion, usuarios.fec_nac, materias.nombre as clase_asignada, usuarios.Apellido FROM `asignacion_maestros` , maestros , materias, usuarios WHERE asignacion_maestros.maestro_id = maestros.maestro_id AND maestros.usuario_id = usuarios.usuario_id AND asignacion_maestros.materia_id = materias.materia_id;");
+   $respuesta = $this->connection->query("SELECT usuarios.usuario_id as id , usuarios.nombre , usuarios.correo, usuarios.direccion, usuarios.fec_nac, materias.nombre as clase_asignada, usuarios.Apellido , maestros.maestro_id FROM `asignacion_maestros` , maestros , materias, usuarios WHERE asignacion_maestros.maestro_id = maestros.maestro_id AND maestros.usuario_id = usuarios.usuario_id AND asignacion_maestros.materia_id = materias.materia_id;");
+   $data_empleados = $respuesta->fetchAll(PDO::FETCH_ASSOC);
+   
+   return $data_empleados;
+
+}
+
+
+public function allmaestrosBy($id)
+{
+   $respuesta = $this->connection->query("SELECT usuarios.usuario_id as id , usuarios.nombre , usuarios.correo, usuarios.direccion, usuarios.fec_nac, materias.nombre as clase_asignada, usuarios.Apellido , maestros.maestro_id FROM `asignacion_maestros` , maestros , materias, usuarios WHERE  usuarios.usuario_id = '$id'  AND asignacion_maestros.maestro_id = maestros.maestro_id AND maestros.usuario_id = usuarios.usuario_id AND asignacion_maestros.materia_id = materias.materia_id; ");
    $data_empleados = $respuesta->fetchAll(PDO::FETCH_ASSOC);
    
    return $data_empleados;
