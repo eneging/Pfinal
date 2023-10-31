@@ -64,6 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
                                     $MaestroController->editarMaestro();
                                     break;
 
+                                    case '/editalumno':
+                                        $Alumnocontroller->editaralumno();
+                                        break;
+
 
 
     }
@@ -86,6 +90,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 case '/editarmaestro':
                     $AdminController->actualizarmaestro($_POST);
                     break;
+
+                    
+                
 
                     case '/editarmalumno':
                         $AdminController->actualizaralumno($_POST);
@@ -111,8 +118,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         /// maestro envios///
 
 
-                        case '/editarPefil':
-                            $controller->editarPefil($_POST);
+                        case '/editarPefilmaestro':
+                            $MaestroController->editarPefilmaestro($_POST);
                             break;
+
+
+
+                            case '/editarPefilalumno':
+                                $MaestroController->editarPefilmaestro($_POST);
+                                break;
     }
 }

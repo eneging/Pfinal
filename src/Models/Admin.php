@@ -38,12 +38,12 @@ public function updatemaestro($data){
     
     if ($res){
        
-        $materia = $this->connection->query("UPDATE `asignacion_maestros` SET `materia_id`='$clase' WHERE `maestro_id`='$maestro_id'");
-    if ($materia) {
+   //     $materia = $this->connection->query("UPDATE `asignacion_maestros` SET `materia_id`='$clase' WHERE `maestro_id`='$maestro_id'");
+   // if ($materia) {
         return true;
-    } else {
-        return false;
-    }
+   /// } else {
+      //  return false;
+    //}
 
     }
     else{
