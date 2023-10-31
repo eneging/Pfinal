@@ -122,7 +122,7 @@ extract($_SESSION['user']);
 
 
 
-<form method="post" action="/editarmaestro" class="flex justify-center content-center items-center flex-col gap-[2rem] bg-white ">
+<form method="post" action="/editarPefilmaestro" class="flex justify-center content-center items-center flex-col gap-[2rem] bg-white ">
 <h1 class="text-[2rem]">Editar  Maestro</h1>
 
 

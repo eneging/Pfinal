@@ -17,4 +17,18 @@ class MaestroController extends UsuarioController  {
 
 
 
+
+
+
+public function editarPefilmaestro($datos) {
+
+
+    $update = new Admin();
+    $data = $update->updatemaestro($datos);
+ 
+    if ($data){
+    header("Location: /src/views/alumno/dashboard.php");}
+    
+}
+
 }

@@ -17,5 +17,23 @@ class AlumnoController extends UsuarioController  {
     }
 
 
+    public function editaralumno() {
+    
+    
+        include $_SERVER['DOCUMENT_ROOT']. "/src/views/alumno/editarAlumno.php";
+    
+    }
+
+    public function editarPefilalumno($datos) {
+
+
+        $update = new Admin();
+        $data = $update->updatemaestro($datos);
+     
+        if ($data){
+        header("Location: /admAlumnoMaestro");}
+        
+    }
+    
 
 }
